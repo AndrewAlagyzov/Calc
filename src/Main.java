@@ -5,9 +5,13 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String str = sc.nextLine();
-        calc(str);
+        try {
+            calc(str);
+        } catch (Exception e) {
+            System.out.println("throws Exception");
+        }
     }
-    public static String calc(String input){
+    public static String calc(String input) throws Exception {
         WordOrNumber x = new WordOrNumber();
         int n = 0, a = 0, b = 0;
         char operant = ' ';
@@ -28,9 +32,9 @@ public class Main {
                 a = Integer.parseInt(strArr[0]);
                 b = Integer.parseInt(strArr[1]);
                 rimCh = false;
-            } else n = 0;
-            if(a < 1 || b < 1 || a > 10 || b > 10 || n == 0) {
-                System.out.println("throws Exception");
+            } else throw new Exception("An error occurred");
+            if(a < 1 || b < 1 || a > 10 || b > 10) {
+                throw new Exception("An error occurred");
             } else {
                 switch(operant){
                     case '+':
@@ -50,10 +54,10 @@ public class Main {
                     System.out.println(x.convertIntToString(result));
                 } else if(!rimCh) {
                     System.out.println(result);
-                } else System.out.println("throws Exception");
+                } else throw new Exception("An error occurred");
             }
         } else {
-            System.out.println("throws Exception");
+            throw new Exception("An error occurred");
         }
         return null;
     }
