@@ -2,13 +2,13 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
         String str = sc.nextLine();
         try {
             calc(str);
         } catch (Exception e) {
-            System.out.println("throws Exception");
+            System.err.println("throws Exception");
         }
     }
     public static String calc(String input) throws Exception {
